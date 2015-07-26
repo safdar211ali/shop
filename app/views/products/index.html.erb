@@ -1,0 +1,120 @@
+<%- model_class = Product -%>
+<div id="content">
+<div class="header-div">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="header-text">Products</div>
+      <div class=" hidden-xs">
+        <div class="breads">
+          <ul class="breadcrumb">
+            <li>
+              <%= link_to_unless_current 'Home', root_path %>
+            </li>
+            <li>
+              <%= link_to_unless_current 'Products', products_path %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4 pull-right">
+      <div class="create">
+        <%= link_to new_product_path, class: 'btn btn-primary pull-right' do %>
+            <i class="fa fa-plus"></i>
+        <% end %>
+      </div>
+      <div class="delete">
+        <button data-original-title="Delete" type="button" data-toggle="tooltip" title="" class="btn btn-danger" onclick="confirm('Are you sure?') ? $('#form-product').submit() : false;">
+          <i class="fa fa-trash-o"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class=" container-fluid">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <i class="fa fa-list"></i>
+      Product List
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div class="well">
+      <div class="row">
+        <%= form_tag "products", method: "get" do %>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="control-label" for="input-name">Product Name</label>
+                <input autocomplete="off" name="filter_name" value="" placeholder="Product Name" id="input-name" class="form-control" type="text">
+                <ul class="dropdown-menu"></ul>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="control-label" for="input-price">Price</label>
+                <input name="filter_price" value="" placeholder="Price" id="input-price" class="form-control" type="text">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="control-label" for="input-image">Image</label>
+                <input name="filter_image" value="" placeholder="Image" id="input-image" class="form-control" type="text">
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label class="control-label" for="input-status">Status</label>
+                <%= select_tag "filter_status", options_for_select([["Enabled", "Enabled"], ["Disabled", "Disabled"]]), prompt: 'Status', class: "form-control", :onchange => "this.form.submit();" %>
+              </div>
+            </div>
+            <div class="col-sm-1" style="margin-top: 25px;">
+              <div class="form-group">
+                <%= submit_tag 'Filter', class: "btn btn-primary " %>
+
+
+              </div>
+            </div>
+            </div>
+        <% end %>
+        </div>
+  </div>
+  <%= form_tag :delproductsg, id: 'form-product' do %>
+
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+          <tr>
+            <th class="text-center" style="width: 1px;">
+              <input onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" type="checkbox"></th>
+            <th class="text-center" style="width: 1px;">Image</th>
+            <th><%= model_class.human_attribute_name(:name) %></th>
+            <th><%= model_class.human_attribute_name(:price) %></th>
+            <th><%= model_class.human_attribute_name(:status) %></th>
+            <th><%= t '.actions', :default => t("helpers.actions") %></th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @products.each do |product| %>
+              <tr>
+                <td><input name="selected[]" type="checkbox" value="<%= product.id %>"></td>
+                <td class="text-center"><%= image_tag product.image.url(:thumb), class: 'img-thumbnail' %></td>
+                <td><%= product.name %></td>
+                <td><%= number_to_currency product.price %></td>
+                <td><%= product.status %></td>
+                <td class="text-center" style="width: 1px;">
+                  <%= link_to edit_product_path(product), :class => 'btn btn-primary' do %>
+                      <i class="fa fa-pencil"></i>
+                  <% end %>
+                </td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+
+  <% end %>
+</div>
+</div>
+</div>
+</div>

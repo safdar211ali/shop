@@ -1,0 +1,18 @@
+I"G(function() {
+  var ready;
+
+  $(document).ready(ready);
+
+  $(document).on("page:load", ready);
+
+  ready = function() {
+    if ($("#form-product").length > 0) {
+      return $(".submit-btn").click(function(event) {
+        event.preventDefault();
+        return $("#form-product").submit();
+      });
+    }
+  };
+
+}).call(this);
+:ET

@@ -1,0 +1,16 @@
+I"(function() {
+  var ready;
+
+  ready = function() {
+    $(".submit-btn").click(function(event) {
+      return event.preventDefault();
+    });
+    return $("#form-product").submit();
+  };
+
+  $(document).ready(ready);
+
+  $(document).on("page:load", ready);
+
+}).call(this);
+:ET

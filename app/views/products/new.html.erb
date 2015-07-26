@@ -1,0 +1,51 @@
+<div class="page-header">
+  <%= link_to products_path, class: 'btn btn-default' do %>
+    <span class="fa fa-reply"></span>
+
+  <% end %>
+
+  <h1>New product</h1>
+</div>
+
+
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#tab-general" data-toggle="tab">General</a></li>
+  <li><a href="#tab-data" data-toggle="tab">Data</a></li>
+  <li><a href="#tab-links" data-toggle="tab">Links</a></li>
+  <li><a href="#tab-attribute" data-toggle="tab">Attribute</a></li>
+  <li><a href="#tab-option" data-toggle="tab">Option</a></li>
+  <li><a href="#tab-recurring" data-toggle="tab">Recurring</a></li>
+  <li><a href="#tab-discount" data-toggle="tab">Discount</a></li>
+  <li><a href="#tab-special" data-toggle="tab">Special</a></li>
+  <li><a href="#tab-image" data-toggle="tab">Image</a></li>
+  <li><a href="#tab-reward" data-toggle="tab">Reward Points</a></li>
+  <li><a href="#tab-design" data-toggle="tab">Design</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="tab-general">
+    <ul class="nav nav-tabs" id="language">
+      <li class="active"><a aria-expanded="true" href="#language1" data-toggle="tab"><img src="view/image/flags/gb.png" title="English"> English</a></li>
+    </ul>
+    <div class="tab-content">
+      <%= render 'form' %>
+    </div>
+  </div>
+  <div class="tab-pane " id="tab-data">
+    <ul class="nav nav-tabs" id="language">
+      <li class="active"><a aria-expanded="true" href="#language1" data-toggle="tab"><img src="view/image/flags/gb.png" title="English"> English</a></li>
+    </ul>
+    <div class="tab-content">
+      <%= render 'form' %>
+    </div>
+  </div>
+  <div class="tab-pane " id="tab-links">
+    <ul class="nav nav-tabs" id="language">
+      <li class="active"><a aria-expanded="true" href="#language1" data-toggle="tab"><img src="view/image/flags/gb.png" title="English"> English</a></li>
+    </ul>
+    <div class="tab-content">
+      <h1>Hello</h1>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+  *= require font-awesome
+ */
+.table-responsive{
+    padding-left: 14px;
+    padding-right: 14px;
+}
+.breadcrumb{
+    background-color: #ffffff;
+    font-size: small;
+}
+.panel-title{
+    color: #595959;
+}
+.header-div {
+    position: relative;
+    height: 50px;
+    margin-bottom: 10px;
+    color: #848484;
+}
+
+.header-text {
+    position: absolute;
+    font-size: x-large;
+    left: 10px;
+    top: 10px;
+}
+
+.breads {
+    position: absolute;
+    left: 120px;
+    top: 10px;
+}
+
+.create {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+}
+
+.delete {
+    position: absolute;
+    right: 50px;
+    top: 10px;
+
+}
